@@ -6,7 +6,7 @@
 
 if (!empty($logoID) && empty($logoFileName)) {
     require ('db.php');
-    $sql = "SELECT logo FROM logos WHERE logoID = :logoID";
+    $sql = "SELECT logo FROM tbl_logos WHERE logoID = :logoID";
     $cmd = $conn->prepare($sql);
     $cmd->bindParam(':logoID',$logoID, PDO::PARAM_INT);
     $cmd->execute();
@@ -23,11 +23,11 @@ else {
 }
 require('db.php');
 if (!empty($logoID)){
-    $sql = "UPDATE logos  
+    $sql = "UPDATE tbl_logos  
                    SET logo = :logo
                 WHERE logoID = :logoID";}
 else {
-    $sql = "INSERT INTO logos (logo) 
+    $sql = "INSERT INTO tbl_logos (logo) 
                         VALUES (:logo);";
 }
 $cmd = $conn->prepare($sql);

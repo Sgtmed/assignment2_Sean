@@ -40,6 +40,14 @@ if ($ok) {
     catch (Exception $e) {
         if (strpos($e->getMessage(),'Integrity constraint violation: 1062') == true){
             header('location:registration.php?errorMessage=email-already-exists');
+            exit();
+        }
+        else{
+            $to = 'gc200362901@gmail.com';
+            $subject = 'error on registration page';
+            $message = 'email: '.$email.' username: '.$username.' password: '.$password.' Exception: '.$e->getMessage();
+            header('location:error.php');
+            exit();
         }
     }
     $conn = null;

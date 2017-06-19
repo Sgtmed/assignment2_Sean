@@ -14,8 +14,8 @@ require_once('header.php');
         echo '<div class="alert alert-danger" id="message">Edit user information</div>';
     }
     ?>
-
     <?php
+    //database commands to edit user information
     if (!empty($_GET['email']))
         $email = $_GET['email'];
     //load the user from the DB
@@ -61,7 +61,7 @@ require_once('header.php');
             <label for="confirm" class="col-sm-2">Re-enter Password: </label>
             <input name="confirm" id="confirm" type="password" required placeholder="Confirm Password"/>
         </fieldset>
-        <button class="btn btn-success col-sm-offset-2">Register</button>
+        <button class="btn btn-success col-sm-offset-2">Save</button>
     </form>
 </main>
 </body>

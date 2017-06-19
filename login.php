@@ -14,7 +14,6 @@ require_once('header.php');
         else
             echo '<div class="alert alert-info" id="message">Please log into your account</div>';
         ?>
-
         <!--login form-->
         <form method="post" action="validation.php">
             <fieldset class="form-group">

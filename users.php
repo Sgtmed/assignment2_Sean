@@ -18,20 +18,19 @@ require_once('header.php');
                         <tr><th>First Name</th>
                             <th>Last Name</th>
                             <th>Username</th>
-                            <th>Email</th>
-                            <th>Hashed Password</th>';
+                            <th>Email</th>';
             if (!empty($_SESSION['email'])){
                 echo '<th>Edit</th>
-                              <th>Delete</th>';
+                      <th>Delete</th>';
             }
             echo '</tr>';
+            //loop through data and display the results
             foreach($tbl_users as $user)
             {
                 echo '<tr><td>'.$user['fname'].'</td>
                                   <td>'.$user['lname'].'</td>
                                   <td>'.$user['username'].'</td>
-                                  <td>'.$user['email'].'</td>
-                                  <td><'.$user['password'].'</td>';
+                                  <td>'.$user['email'].'</td>';
                 //make sure administrator is logged on to edit and delete entries
                 if (!empty($_SESSION['email'])){
                     echo '<td><a href="edit-user.php?email='.$user['email'].'"
