@@ -3,7 +3,7 @@
 $pageTitle = 'Edit User';
 require_once('header.php');
 ?>
-<main class="container">
+<main class="container-fluid background1">
     <h1>Edit User Information</h1>
     <!--colored banner message-->
     <?php
@@ -11,7 +11,7 @@ require_once('header.php');
         echo '<div class="alert alert-danger" id="message">Email address already exists</div>';
     }
     else {
-        echo '<div class="alert alert-danger" id="message">Edit user information</div>';
+        echo '<div class="alert alert-warning" id="message">Edit user information</div>';
     }
     ?>
     <?php
@@ -23,15 +23,16 @@ require_once('header.php');
         require('db.php');
         $sql = "SELECT * FROM tbl_users WHERE email = :email";
         $cmd = $conn->prepare($sql);
-        $cmd->bindParam(':email', $email, PDO::PARAM_INT);
+        $cmd->bindParam(':email', $email, PDO::PARAM_STR, 120);
         $cmd->execute();
         $user = $cmd->fetch();
-        $conn = null;
+
         $fname = $user['fname'];
         $lname = $user['lname'];
         $email = $user['email'];
         $username = $user['username'];
         $password = null;
+        $conn = null;
     }
     ?>
 
@@ -39,19 +40,19 @@ require_once('header.php');
     <form method="post" action="save-registration.php">
         <fieldset class="form-group">
             <label for="fname" class="col-sm-2">First Name: </label>
-            <input name="fname" id="fname" required placeholder="first name"/>
+            <input name="fname" id="fname" required placeholder="first name" value="<?php echo $fname ?>"/>
         </fieldset>
         <fieldset class="form-group">
             <label for="lname" class="col-sm-2">Last Name: </label>
-            <input name="lname" id="lname" required placeholder="last name"/>
+            <input name="lname" id="lname" required placeholder="last name" value="<?php echo $lname ?>"/>
         </fieldset>
         <fieldset class="form-group">
             <label for="email" class="col-sm-2">Email: </label>
-            <input name="email" id="email" type="email" required placeholder="user@email.com"/>
+            <input name="email" id="email" type="email" required placeholder="user@email.com" value="<?php echo $email ?>"/>
         </fieldset>
         <fieldset class="form-group">
             <label for="username" class="col-sm-2">User Name: </label>
-            <input name="username" id="username" required placeholder="Username"/>
+            <input name="username" id="username" required placeholder="Username" <?php echo $username ?>/>
         </fieldset>
         <fieldset class="form-group">
             <label for="password" class="col-sm-2">Password: </label>
@@ -64,6 +65,5 @@ require_once('header.php');
         <button class="btn btn-success col-sm-offset-2">Save</button>
     </form>
 </main>
-</body>
 <!--footer page-->
 <?php require_once('footer.php') ?>

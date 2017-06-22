@@ -3,7 +3,7 @@
 $pageTitle = 'Login';
 require_once('header.php');
 ?>
-    <main class="container">
+    <main class="container-fluid background1">
         <h1>Login</h1>
         <!--colored banner message-->
         <?php

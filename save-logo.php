@@ -1,10 +1,10 @@
 <?php
     $logoID = $_POST['logoID'];
-    $logoFileName = $_FILES['logo']['name'];
-    $logoFileType = $_FILES['logo']['type'];
-    $logoFileTmpLocation = $_FILES['logo']['tmp_name'];
+    $logoName = $_FILES['logo']['name'];
+    $logoType = $_FILES['logo']['type'];
+    $logoTmpLocation = $_FILES['logo']['tmp_name'];
 
-if (!empty($logoID) && empty($logoFileName)) {
+if (!empty($logoID) && empty($logoName)) {
     require ('db.php');
     $sql = "SELECT logo FROM tbl_logos WHERE logoID = :logoID";
     $cmd = $conn->prepare($sql);
@@ -15,23 +15,17 @@ if (!empty($logoID) && empty($logoFileName)) {
 }
 else {
     $validFileTypes = ['image/jpg', 'image/png', 'image/svg', 'image/gif', 'image/jpeg'];
-    $fileType = mime_content_type($logoFileTmpLocation);
+    $fileType = mime_content_type($logoTmpLocation);
     if (in_array($fileType, $validFileTypes)) {
-        $fileName = "uploads/" . uniqid("", true) . "-" . $logoFileName;
-        move_uploaded_file($logoFileTmpLocation, $fileName);
+        $fileName = "uploads/" . uniqid("", true) . "-" . $logoName;
+        move_uploaded_file($logoTmpLocation, $fileName);
     }
 }
 require('db.php');
-if (!empty($logoID)){
-    $sql = "UPDATE tbl_logos  
-                   SET logo = :logo
-                WHERE logoID = :logoID";}
-else {
-    $sql = "INSERT INTO tbl_logos (logo) 
-                        VALUES (:logo);";
-}
+$sql = "INSERT INTO tbl_logos (logo) 
+        VALUES (:logo);";
 $cmd = $conn->prepare($sql);
-$cmd->bindParam(':logo',$fileName, PDO::PARAM_STR, 100);
+$cmd->bindParam(':logo', $fileName, PDO::PARAM_STR, 100);
 if (!empty($logoID))
     $cmd->bindParam(':logoID', $logoID, PDO::PARAM_INT);
 $cmd->execute();

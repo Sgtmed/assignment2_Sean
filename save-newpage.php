@@ -6,7 +6,6 @@ if (empty($pageTitle)) {
     echo 'You must enter a page title <br />';
     $ok = false;
 }
-
 if ($ok) {
     //db commands to register new user
     //try to insert pageTitle and throw exception if pageTitle is already inserted

@@ -3,7 +3,7 @@
 $pageTitle = 'Edit User';
 require_once('header.php');
 ?>
-<main class="container">
+<main class="container-fluid background1">
     <h1>Upload logo</h1>
     <form method="post" action="save-logo.php" enctype="multipart/form-data">
         <fieldset class="form-group">
@@ -14,6 +14,5 @@ require_once('header.php');
         <button class="btn btn-success col-sm-offset-2">Submit</button>
     </form>
 </main>
-</body>
 <!--footer page-->
 <?php require_once('footer.php') ?>

@@ -2,7 +2,7 @@
 $pageTitle = 'Registered Users';
 require_once('header.php');
 ?>
-    <main class="container">
+    <main class="container-fluid background1">
         <h1>Registered Users</h1>
             <?php
             //database commands
@@ -14,7 +14,7 @@ require_once('header.php');
             $conn = null;
 
             //create a table headers
-            echo '<table class="table table-striped table-hover">
+            echo '<table class="table table-bordered">
                         <tr><th>First Name</th>
                             <th>Last Name</th>
                             <th>Username</th>
@@ -41,5 +41,7 @@ require_once('header.php');
                 echo '</tr>';
             }
             echo '</table></main>';
-            require_once ('footer.php');
             ?>
+<?php
+require_once ('footer.php');
+?>

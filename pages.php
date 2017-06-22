@@ -2,9 +2,9 @@
 $pageTitle = 'Pages';
 require_once('header.php');
 ?>
-    <main class="container">
+    <main class="container-fluid background1">
         <h1>Pages</h1>
-        <a href="add-page.php">Add Page</a>
+        <a href="add-page.php" class="btn btn-info btn-sm">Add Page</a>
             <?php
             //database commands
             require_once('db.php');
@@ -15,7 +15,7 @@ require_once('header.php');
             $conn = null;
 
             //create a table headers
-            echo '<table class="table table-striped table-hover">
+            echo '<table class="table table-bordered">
                     <tr><th>Page</th>
                     <th>Edit</th>
                     <th>Delete</th>';
@@ -23,12 +23,14 @@ require_once('header.php');
             //loop through data and display the results
             foreach($tbl_pages as $page) {
                 echo '<tr><td>'.$page['pageTitle'].'</td>
-                          <td><a href="default.php?pageID='.$page['pageID'].'"
+                          <td><a href="edit-pages.php?pageID='.$page['pageID'].'"
                                             class="btn btn-primary">Edit</a></td>
-                          <td><a href="default.php?pageID='.$page['pageID'].'" 
+                          <td><a href="delete-pages.php?pageID='.$page['pageID'].'" 
                                             class="btn btn-danger confirmation">Delete</a></td>';
                 }
                 echo '</tr>';
             echo '</table></main>';
-            require_once ('footer.php');
             ?>
+<?php
+require_once ('footer.php');
+?>

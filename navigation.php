@@ -1,5 +1,5 @@
 <!--navigation menu-->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
         <img height="50" class="pull-left" src=<?php echo $logo?>>
         <li><a href="index.php" class="navbar-brand">Home</a></li>
@@ -13,11 +13,11 @@
             $cmd->execute();
             $tbl_pages = $cmd->fetchAll();
             foreach ($tbl_pages as $page) {
-                echo '<li><a href="index.php?'.$page['pageID'].'">'.$page['pageTitle'].'</a></li>';
+                echo '<li><a href="index.php?pageID='.$page['pageID'].'">'.$page['pageTitle'].'</a></li>';
             }
             $conn = null;
-            echo '<li><a href="registration.php">Register</a></li>
-                  <li><a href="login.php">Login</a></li>';
+            echo '<li><a href="registration.php" class="pull-right">Register</a></li>
+                  <li><a href="login.php" class="pull-right">Login</a></li>';
         }
         //private links
         else {

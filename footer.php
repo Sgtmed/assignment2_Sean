@@ -1,6 +1,8 @@
 <footer class="navbar-fixed-bottom">
-    <hr />
-    &copy; 2017 | Sean Noddin
+    <div class="container-fluid background2 text-center">
+        <h3>Assignment Two</h3>
+        <p>A website to give users the ability to add and remove content on their own webpage and handle their registered usersbase</p>
+    </div>
 </footer>
 </body>
 <!--jQuery-->

@@ -3,7 +3,7 @@
 $pageTitle = 'Add page';
 require_once('header.php');
 ?>
-<main class="container">
+<main class="container-fluid background1">
     <h1>User Registration</h1>
     <!--colored banner message-->
     <?php
@@ -23,6 +23,5 @@ require_once('header.php');
         <button class="btn btn-success col-sm-offset-2">Submit</button>
     </form>
 </main>
-</body>
 <!--footer page-->
 <?php require_once('footer.php') ?>
