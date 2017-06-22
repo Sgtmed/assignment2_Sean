@@ -6,7 +6,7 @@ require_once('header.php');
         <h1>Registered Users</h1>
             <?php
             //database commands
-            require_once('db.php');
+            require('db.php');
             $sql = "SELECT * FROM tbl_users";
             $cmd = $conn->prepare($sql);
             $cmd->execute();

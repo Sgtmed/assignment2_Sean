@@ -7,7 +7,7 @@ require_once('header.php');
         <a href="add-page.php" class="btn btn-info btn-sm">Add Page</a>
             <?php
             //database commands
-            require_once('db.php');
+            require('db.php');
             $sql = "SELECT * FROM tbl_pages";
             $cmd = $conn->prepare($sql);
             $cmd->execute();

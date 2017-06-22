@@ -3,6 +3,7 @@ $pageID = $_POST['pageID'];
 $pageTitle = $_POST['pageTitle'];
 $pageHeading = $_POST['pageHeading'];
 $pageContent = $_POST['pageContent'];
+
 $ok = true;
 //validation of page edit
 if (empty($pageTitle)) {

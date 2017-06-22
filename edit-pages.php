@@ -20,7 +20,7 @@ require_once('header.php');
             $pageContent = null;
         }
         if (!empty($pageID)) {
-            require_once('db.php');
+            require('db.php');
             $sql = "SELECT * FROM tbl_pages WHERE pageID = :pageID";
             $cmd = $conn->prepare($sql);
             $cmd->bindParam(':pageID', $pageID, PDO::PARAM_INT);
@@ -30,6 +30,7 @@ require_once('header.php');
             $pageHeading = $page['pageHeading'];
             $pageContent = $page['pageContent'];
             $conn = null;
+
         }
         ?>
     <!--registration form-->
@@ -44,7 +45,7 @@ require_once('header.php');
         </fieldset>
         <fieldset class="form-group">
             <label for="pageContent" class="col-sm-2">Page Content: </label>
-            <textarea name="pageContent" rows="7" cols="60" id="pageContent"><?php echo $pageContent ?></textarea>
+            <textarea name="pageContent" rows="7" cols="60" id="pageContent" value="<?php echo $pageContent?>"><?php echo $pageContent?></textarea>
         </fieldset>
         <input name="pageID" id="pageID" value="<?php echo $pageID?>" type="hidden"/>
         <button class="btn btn-success col-sm-offset-2">Save</button>

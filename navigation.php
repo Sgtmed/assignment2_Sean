@@ -1,7 +1,7 @@
 <!--navigation menu-->
 <nav class="navbar navbar-default">
     <ul class="nav navbar-nav">
-        <img height="50" class="pull-left" src=<?php echo $logo?>>
+        <img height="40" class="pull-left" id="logo" src=<?php echo $logo?>>
         <li><a href="index.php" class="navbar-brand">Home</a></li>
         <?php
         session_start();

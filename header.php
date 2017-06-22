@@ -14,16 +14,13 @@
 
 <?php
     //database commands to get logo
-    //require('db.php');
-    //$sql = "SELECT MAX(logoID) FROM tbl_logos";
-    //$cmd = $conn->prepare($sql);
-    //$cmd->bindParam(':logoID', $logoID, PDO::PARAM_INT);
-    //$cmd->execute();
-    //$logoID = $cmd->fetch();
-    //$logo = $logoID['logo'];
-    //$conn = null;
+    require('db.php');
+    $sql = "SELECT logo FROM tbl_logos WHERE logoID=(SELECT MAX(logoID) FROM tbl_logos)";
+    $cmd = $conn->prepare($sql);
+    $cmd->bindParam(':logoID', $logoID, PDO::PARAM_INT);
+    $cmd->execute();
+    $logoImage = $cmd->fetch();
+    $logo = $logoImage['logo'];
+    $conn = null;
 ?>
-
-<?php
-require_once('navigation.php');
-?>
+<?php require_once('navigation.php'); ?>
