@@ -11,6 +11,10 @@ CREATE TABLE tbl_users(
 );
 
 SELECT * FROM tbl_users;
+DESC tbl_users;
+
+
+DROP TABLE tbl_logos;
 
 CREATE TABLE tbl_logos(
 	logoID 						INT AUTO_INCREMENT PRIMARY KEY,
@@ -18,3 +22,14 @@ CREATE TABLE tbl_logos(
 );
 
 SELECT * FROM tbl_logos;
+
+DROP TABLE tbl_pages;
+
+CREATE TABLE tbl_pages(
+pageID INT AUTO_INCREMENT PRIMARY KEY,
+pageTitle VARCHAR(30) NOT NULL,
+pageHeading VARCHAR(30),
+pageContent VARCHAR(500)
+);
+
+SELECT * FROM tbl_pages;
